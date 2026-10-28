@@ -1,0 +1,39 @@
+# Build output
+/bang
+*.o
+*.obj
+*.a
+*.so
+*.dylib
+*.exe
+*.out
+
+# CMake / Make
+build/
+cmake-build-*/
+CMakeCache.txt
+CMakeFiles/
+Makefile
+*.make
+
+# Editor / tooling artifacts
+target/
+.cache/
+compile_commands.json
+.flycheck*
+*.swp
+*.swo
+*~
+
+# Editor dirs
+.idea/
+.vscode/
+*.kate-swp
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Local env
+.env
+.venv/
