@@ -3,12 +3,12 @@
 
 #include "help.hpp"
 #include "lib/args.hpp"
+#include "lib/bashit.hpp"
 #include "lib/findPath.hpp"
 
 using namespace std;
 
 const string version = "v0.1.0";
-
 
 int main(int argc, char *argv[]) {
   vector<string> flags;
@@ -24,6 +24,9 @@ int main(int argc, char *argv[]) {
       // exit(0)
     }
   }
+  int status;
+  runCommand("mkdir -p ~/.config/bang/", status, true);
+
   if (scriptName.empty()) {
     cout << argv[0] << ": no script specified\n";
     cout << "Run " << argv[0] << " --help for help\n";
@@ -34,7 +37,8 @@ int main(int argc, char *argv[]) {
   findPath(scriptName, path);
   if (path.empty()) {
     cout << "error: script \"" << scriptName << "\" not found.\n";
-    cout << "scripts should be placed in .bang (for individual projects) or in ~/.config/bang (for global access)\n";
+    cout << "scripts should be placed in .bang (for individual projects) or in "
+            "~/.config/bang (for global access)\n";
     exit(1);
   }
   return runScript(path, scriptArgs);
