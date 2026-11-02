@@ -5,6 +5,7 @@
 #include "lib/args.hpp"
 #include "lib/bashit.hpp"
 #include "lib/findPath.hpp"
+#include "ci.hpp"
 
 using namespace std;
 
@@ -20,8 +21,8 @@ int main(int argc, char *argv[]) {
       help(version);
       exit(0);
     } else if (flag == "--ci") {
-      // TODO: ci()
-      // exit(0)
+      ci();
+      exit(0);
     }
   }
   int status;
